@@ -1,0 +1,42 @@
+int a = 134;
+int b = 23;
+int e = 50;
+double f = 12.5;
+
+if (b > 30) {
+    int c = b + a;
+    System.out.println("c = " + c);
+} else {
+    int c = b - a;
+    System.out.println("c = " + c);
+}
+
+if (a > 100) {
+    int c = a - b;
+    int d = a * a + c;
+    System.out.println("d = " + d);
+
+    if (d % 2 == 0) {
+        int g = d / 2;
+        System.out.println("g = " + g);
+    } else {
+        int g = d * 2;
+        System.out.println("g = " + g);
+    }
+}
+
+if (e < f) {
+    double h = f * e;
+    System.out.println("h = " + h);
+} else {
+    double h = f + e;
+    System.out.println("h = " + h);
+}
+
+if (a + b > e) {
+    int i = a + b - e;
+    System.out.println("i = " + i);
+} else {
+    int i = e - (a + b);
+    System.out.println("i = " + i);
+}
