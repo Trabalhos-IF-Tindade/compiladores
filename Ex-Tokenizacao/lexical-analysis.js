@@ -32,7 +32,7 @@ for (value of splitedCode) {
     }
 }
 function splitCode(input) {
-    const regex = /\w+|[<->]+|[^\w\s]/g;
+    const regex = /\w+|[<->]+|[^\w\s]/g
 
     const matches = input.match(regex)
     return matches
@@ -76,7 +76,7 @@ function createToken(value) {
         case 'PALAVRA RESERVADA':
             return 'KW_' + value.toUpperCase()
         default:
-            return;
+            return
     }
 }
 
@@ -105,8 +105,10 @@ function checkIfIsReservedWord(word) {
         'continue', 'default', 'do', 'double', 'else', 'enum', 'extends', 'final', 'finally', 'float',
         'for', 'if', 'goto', 'implements', 'import', 'instanceof', 'int', 'interface', 'long', 'native',
         'new', 'package', 'private', 'protected', 'public', 'return', 'short', 'static', 'strictfp',
-        'super', 'switch', 'synchronized', 'this', 'throw', 'throws', 'transient', 'try', 'void', 'volatile', 'while'
-    ];
+        'super', 'switch', 'synchronized', 'this', 'throw', 'throws', 'transient', 'try', 'void', 'volatile', 'while',
+        'System', 'out', 'println', 'args', 'String'
+
+    ]
 
     return reservedWords.includes(word)
 }
