@@ -59,14 +59,14 @@ function createToken(value) {
         '!': 'NOT',
         '&': 'AND',
         '|': 'OR',
+        "'": 'SINGLE_QUOTES'
         '==': 'EQUALS',
         '===': 'STRICTLY_EQUALS',
         '!=': 'DIFERENT',
         '!==': 'STRICTLY_DIFERENT',
         '"': 'DOUBLE_QUOTES',
         '%': 'PERCENT',
-        '.': 'DOT',
-        "'": 'SINGLE_QUOTES'
+        '.': 'DOT'
     }
 
     switch (type) {
