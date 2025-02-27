@@ -2,10 +2,10 @@ const fs = require('fs')
 
 const input = fs.readFileSync('./input2.txt', 'utf8')
 
-const splitedCode = splitCode(input)
-
 const simbleTable = []
 const tokens = []
+
+const splitedCode = splitCode(input)
 
 for (value of splitedCode) {
     const token = createToken(value)
@@ -17,20 +17,17 @@ for (value of splitedCode) {
         valor: token === "NUMBER" ? value : null
     }
 
-    if (token === "NUMBER") {
-        formattedValue.valor = value
-    }
-
-    lexemaAlreadyExists = simbleTable.some(simbleTable => simbleTable.lexema === value)
+    const lexemaAlreadyExists = simbleTable.some(simbleTable => simbleTable.lexema === value)
     
     if (!lexemaAlreadyExists) {
         simbleTable.push(formattedValue)
-        tokens.push(`${value} -> <${token}, ${simbleTable.length}>`)
+        tokens.push(`<${token}, ${simbleTable.length}>`)
     }else{
         const data = simbleTable.filter(simbleTable => simbleTable.lexema === value)
-        tokens.push(`${value} -> <${token}, ${data[0].id}>`)
+        tokens.push(`<${token}, ${data[0].id}>`)
     }
 }
+
 function splitCode(input) {
     const regex = /\w+|(!*[<->])+|[^\w\s]/g
 
@@ -65,7 +62,8 @@ function createToken(value) {
         '!==': 'STRICTLY_DIFERENT',
         '"': 'DOUBLE_QUOTES',
         '%': 'PERCENT',
-        '.': 'DOT'
+        '.': 'DOT', 
+        "'": 'QUOTES'
     }
 
     switch (type) {
@@ -85,11 +83,11 @@ function createToken(value) {
 function findType(value) {
 
     const regexIsNumber = /\d/
-    const regexIsCaractere = /[^\w\s]+/
+    const regexIsSpecialCaractere = /[^\w\s]+/
 
     if (value.match(regexIsNumber)) {
         return 'NUMERO'
-    } else if (value.match(regexIsCaractere)) {
+    } else if (value.match(regexIsSpecialCaractere)) {
         return 'CARACTERE ESPECIAL'
     }
     else {
@@ -109,7 +107,6 @@ function checkIfIsReservedWord(word) {
         'new', 'package', 'private', 'protected', 'public', 'return', 'short', 'static', 'strictfp',
         'super', 'switch', 'synchronized', 'this', 'throw', 'throws', 'transient', 'try', 'void', 'volatile', 'while',
         'System', 'out', 'println', 'args', 'String'
-
     ]
 
     return reservedWords.includes(word)
@@ -119,8 +116,8 @@ console.log('--> Lexemas')
 console.log(splitedCode.join(' | '))
 
 console.log('\n--> Tabela de símbolos')
-console.table(simbleTable)
+console.log(simbleTable)
 
 console.log('\n--> Código Tokenizado')
-console.log(tokens.join('\n'))
+console.log(tokens.join(''))
 

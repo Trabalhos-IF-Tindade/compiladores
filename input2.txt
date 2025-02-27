@@ -1,3 +1,4 @@
+char i = 'teste'
 int a = 134;
 int b = 23;
 int e = 50;
