@@ -65,7 +65,8 @@ function createToken(value) {
         '!==': 'STRICTLY_DIFERENT',
         '"': 'DOUBLE_QUOTES',
         '%': 'PERCENT',
-        '.': 'DOT'
+        '.': 'DOT',
+        "'": 'SINGLE_QUOTES'
     }
 
     switch (type) {
