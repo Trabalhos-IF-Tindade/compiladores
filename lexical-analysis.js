@@ -17,9 +17,9 @@ for (value of splitedCode) {
         valor: token === "NUMBER" ? value : null
     }
 
-    if (token === "NUMBER") {
+    /* if (token === "NUMBER") {
         formattedValue.valor = value
-    }
+    } */
 
     lexemaAlreadyExists = simbleTable.some(simbleTable => simbleTable.lexema === value)
     
