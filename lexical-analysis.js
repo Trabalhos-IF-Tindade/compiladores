@@ -17,7 +17,15 @@ for (value of splitedCode) {
         valor: token === "NUMBER" ? value : null
     }
 
+<<<<<<< HEAD
     const lexemaAlreadyExists = simbleTable.some(simbleTable => simbleTable.lexema === value)
+=======
+    /* if (token === "NUMBER") {
+        formattedValue.valor = value
+    } */
+
+    lexemaAlreadyExists = simbleTable.some(simbleTable => simbleTable.lexema === value)
+>>>>>>> 654c320c255a05099784ffc53d0bdd951c066897
     
     if (!lexemaAlreadyExists) {
         simbleTable.push(formattedValue)
@@ -56,6 +64,7 @@ function createToken(value) {
         '!': 'NOT',
         '&': 'AND',
         '|': 'OR',
+        "'": 'SINGLE_QUOTES',
         '==': 'EQUALS',
         '===': 'STRICTLY_EQUALS',
         '!=': 'DIFERENT',
